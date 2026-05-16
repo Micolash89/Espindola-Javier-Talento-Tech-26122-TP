@@ -12,7 +12,22 @@
   text-decoration: none;
   color: inherit;
   transition: opacity 0.2s ease;
+  opacity: 0;
+  animation: fadeUp 0.28s ease-out forwards;
 }
+
+.item-list-link:nth-child(1) { animation-delay: 0ms; }
+.item-list-link:nth-child(2) { animation-delay: 40ms; }
+.item-list-link:nth-child(3) { animation-delay: 80ms; }
+.item-list-link:nth-child(4) { animation-delay: 120ms; }
+.item-list-link:nth-child(5) { animation-delay: 160ms; }
+.item-list-link:nth-child(6) { animation-delay: 200ms; }
+.item-list-link:nth-child(7) { animation-delay: 240ms; }
+.item-list-link:nth-child(8) { animation-delay: 280ms; }
+.item-list-link:nth-child(9) { animation-delay: 320ms; }
+.item-list-link:nth-child(10) { animation-delay: 360ms; }
+.item-list-link:nth-child(11) { animation-delay: 400ms; }
+.item-list-link:nth-child(12) { animation-delay: 440ms; }
 
 .item-list-link:hover {
   opacity: 0.8;

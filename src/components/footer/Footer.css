@@ -3,6 +3,7 @@
   border-top: 1px solid var(--color-hint-of-gray);
   padding: var(--section-gap-min) 0;
   margin-top: auto;
+  animation: fadeUp 0.28s ease-out 0.15s both;
 }
 
 .footer-content {

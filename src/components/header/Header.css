@@ -6,6 +6,7 @@
   top: 0;
   z-index: 100;
   box-shadow: var(--shadow-md);
+  animation: fadeDown 0.28s ease-out;
 }
 
 .header > div {

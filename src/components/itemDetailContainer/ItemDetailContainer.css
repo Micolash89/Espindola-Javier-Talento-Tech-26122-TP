@@ -13,12 +13,16 @@
   color: var(--color-ink-black);
   margin: 0 0 var(--section-gap-min) 0;
   padding: 0;
+  opacity: 0;
+  animation: fadeUp 0.28s ease-out 0.1s forwards;
 }
 
 .item-detail {
   display: flex;
   gap: var(--section-gap-min);
   align-items: flex-start;
+  opacity: 0;
+  animation: fadeUp 0.28s ease-out 0.18s forwards;
 }
 
 @media (max-width: 768px) {

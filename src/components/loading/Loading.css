@@ -27,13 +27,3 @@
     transform: rotate(360deg);
   }
 }
-
-.loading-text {
-  font-family: var(--font-arketsansmono);
-  font-size: var(--text-body);
-  line-height: var(--leading-body);
-  font-weight: var(--font-weight-regular);
-  color: var(--color-body-text-gray);
-  margin: 0;
-  padding: 0;
-}

@@ -1,0 +1,6 @@
+.items-list-section {
+  width: 100%;
+  max-width: var(--max-width-container);
+  margin: 0 auto;
+  padding: var(--section-gap-min) var(--spacing-16);
+}

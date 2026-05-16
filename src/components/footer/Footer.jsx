@@ -6,14 +6,18 @@ export default function Footer() {
 
   return (
     <footer className="footer">
-      <div>
-        <p>&copy; {year} todos los derechos reservados.</p>
+      <div className="footer-content">
+        <div className="footer-section">
+          <p className="footer-copyright">&copy; {year} todos los derechos reservados.</p>
+        </div>
 
-        <ul>
-          <li>gitHub </li>
-          <li>Linkedin</li>
-          <li>Portfolio</li>
-        </ul>
+        <div className="footer-section">
+          <ul className="footer-links">
+            <li><a href="#" className="footer-link">gitHub</a></li>
+            <li><a href="#" className="footer-link">Linkedin</a></li>
+            <li><a href="#" className="footer-link">Portfolio</a></li>
+          </ul>
+        </div>
       </div>
     </footer>
   );

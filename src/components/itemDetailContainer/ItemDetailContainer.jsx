@@ -34,7 +34,7 @@ export default function ItemDetailContainer() {
 
   return (
     <section className="item-detail-container">
-      <h2>Detalles de producto</h2>
+      <h1 className="detail-title">Detalles de producto</h1>
       <div className="item-detail">
         <ItemDetail item={itemDetail} />
       </div>

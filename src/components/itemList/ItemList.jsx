@@ -9,15 +9,12 @@ export default function ItemList({ products }) {
     }
 
   return (
-    <div>
+    <div className="item-list">
         {products.map(product => (
-            <Link key={product.id} to={`/products/${product.id}`}>
+            <Link key={product.id} to={`/products/${product.id}`} className="item-list-link">
                 <Item {...product} />
             </Link>
         ))}
-            
-
-
     </div>
   )
 }

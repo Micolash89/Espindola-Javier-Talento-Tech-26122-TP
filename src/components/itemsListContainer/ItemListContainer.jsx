@@ -29,7 +29,7 @@ export default function ItemListContainer() {
     return <div>Error al cargar los productos.</div>;
 
 
-  return <section>
+  return <section className="items-list-section">
       <ItemList products={products} />
     </section>;
 }

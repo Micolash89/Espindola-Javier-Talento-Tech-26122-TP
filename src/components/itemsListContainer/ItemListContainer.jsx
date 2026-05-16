@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import "./ItemListContainer.css";
 import ItemList from "../itemList/ItemList";
+import Loading from "../loading/Loading";
+import ErrorMessage from "../error/ErrorMessage";
 
 export default function ItemListContainer() {
   const [products, setProducts] = useState([]);
@@ -23,10 +25,10 @@ export default function ItemListContainer() {
   }, []);
 
   if (loading) 
-    return <div>Cargando...</div>;
+    return <Loading />;
   
   if (error)
-    return <div>Error al cargar los productos.</div>;
+    return <ErrorMessage message="Error al cargar los productos." actionLabel="Reintentar" actionHref="/" />;
 
 
   return <section className="items-list-section">

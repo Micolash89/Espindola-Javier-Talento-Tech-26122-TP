@@ -2,12 +2,15 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./ItemDetailContainer.css";
 import ItemDetail from "../itemDetail/ItemDetail";
+import Loading from "../loading/Loading";
+import ErrorMessage from "../error/ErrorMessage";
 
 export default function ItemDetailContainer() {
   const { id } = useParams();
 
   const [itemDetail, setItemDetail] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     fetch(`/data/products.json`)
@@ -22,15 +25,16 @@ export default function ItemDetailContainer() {
       })
       .catch((err) => {
         console.error("Error al cargar el producto:", err);
+        setError(true);
       })
       .finally(() => {
         setLoading(false);
       });
   }, [id]);
 
-  if (loading) return <div>Cargando...</div>;
+  if (loading) return <Loading />;
 
-  if (!itemDetail) return <div>Producto no encontrado.</div>;
+  if (error || !itemDetail) return <ErrorMessage message="Producto no encontrado." actionLabel="Volver al catálogo" actionHref="/" />;
 
   return (
     <section className="item-detail-container">

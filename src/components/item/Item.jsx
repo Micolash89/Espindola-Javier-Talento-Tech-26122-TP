@@ -1,4 +1,4 @@
-
+import './Item.css'
 
 export default function Item({ name, price ,description, category, image, children }) {
   return (

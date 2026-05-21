@@ -24,14 +24,20 @@ export default function ItemListContainer() {
       });
   }, []);
 
-  if (loading) 
-    return <Loading />;
-  
+  if (loading) return <Loading />;
+
   if (error)
-    return <ErrorMessage message="Error al cargar los productos." actionLabel="Reintentar" actionHref="/" />;
+    return (
+      <ErrorMessage
+        message="Error al cargar los productos."
+        actionLabel="Reintentar"
+        actionHref="/"
+      />
+    );
 
-
-  return <section className="items-list-section">
+  return (
+    <section className="items-list-section">
       <ItemList products={products} />
-    </section>;
+    </section>
+  );
 }

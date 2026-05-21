@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "./Header.css";
+import Nav from "../nav/Nav";
 
 export default function Header() {
   return (
@@ -9,6 +10,10 @@ export default function Header() {
           <img src="" alt="" />
           <span>Reactiva</span>
         </Link>
+
+      </div>
+      <div>
+        <Nav />
       </div>
     </header>
   );

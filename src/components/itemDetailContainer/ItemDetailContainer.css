@@ -15,14 +15,22 @@
   padding: 0;
   opacity: 0;
   animation: fadeUp 0.28s ease-out 0.1s forwards;
+  text-align: center;
 }
 
 .item-detail {
   display: flex;
   gap: var(--section-gap-min);
   align-items: flex-start;
+  justify-content: center;
   opacity: 0;
   animation: fadeUp 0.28s ease-out 0.18s forwards;
+}
+
+.item-detail .product-image {
+  max-width: 500px;
+  width: 100%;
+  flex-shrink: 0;
 }
 
 @media (max-width: 768px) {
@@ -34,5 +42,9 @@
   .detail-title {
     font-size: var(--text-heading);
     line-height: var(--leading-heading);
+  }
+
+  .item-detail .product-image {
+    max-width: 100%;
   }
 }

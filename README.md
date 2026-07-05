@@ -42,27 +42,6 @@ Brindar a los estudiantes los conocimientos y habilidades necesarios para diseñ
 
 El curso tiene como propósito que los participantes integren todas estas competencias en un **proyecto final funcional (un e-commerce)**, aplicando operaciones CRUD, manejo de formularios y rutas protegidas. Además, busca fomentar el aprendizaje de buenas prácticas de desarrollo frontend, el trabajo con librerías de estilización modernas y la capacidad de desplegar proyectos en entornos productivos.
 
-### Objetivos Específicos
-
-1. **Familiarizar** a los estudiantes con los fundamentos de ReactJS y su ecosistema
-2. **Desarrollar** habilidades para manejar el estado dentro de componentes y globalmente con Context API
-3. **Capacitar** a los estudiantes para crear y gestionar rutas dinámicas y protegidas
-4. **Enseñar** la integración de formularios con validación y la implementación de un sistema de autenticación básico
-5. **Guiar** en la construcción de un proyecto final de e-commerce utilizando conceptos como CRUD y manejo de estados complejos
-6. **Introducir** buenas prácticas de estilización y diseño para crear aplicaciones web visualmente atractivas y funcionales
-
----
-
-## ✅ Requisitos de Acreditación
-
-Para acreditar el curso, los estudiantes deben cumplir con:
-
-- ✓ **70% de asistencia** a las clases virtuales semanales obligatorias
-- ✓ **Aprobación** de todos los cuestionarios parciales de contenidos
-- ✓ **Entrega y aprobación** del Proyecto Final Integrador
-
----
-
 ## 💻 Recursos Necesarios
 
 ### Hardware

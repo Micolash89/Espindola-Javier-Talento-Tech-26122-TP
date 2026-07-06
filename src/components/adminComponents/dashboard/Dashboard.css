@@ -1,0 +1,103 @@
+.dashboard {
+  max-width: var(--max-width-container);
+  margin: 0 auto;
+  padding: var(--section-gap-min) var(--spacing-16);
+  display: flex;
+  flex-direction: column;
+  gap: var(--section-gap-min);
+}
+
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--spacing-16);
+}
+
+.header-actions {
+  display: flex;
+  gap: var(--spacing-12);
+}
+
+.btn {
+  font-family: var(--font-arketsansmono);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  padding: var(--spacing-8) var(--spacing-16);
+  border-radius: var(--radius-buttons);
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.2s ease;
+}
+
+.btn.primary {
+  background-color: var(--color-canvas-white);
+  color: var(--color-ink-black);
+  border: 1px solid var(--color-ink-black);
+}
+
+.btn.primary:hover {
+  background-color: var(--color-ink-black);
+  color: var(--color-canvas-white);
+}
+
+.btn.bg-delete {
+  background-color: var(--color-canvas-white);
+  color: var(--color-cart-badge-red);
+  border: 1px solid var(--color-cart-badge-red);
+}
+
+.btn.bg-delete:hover {
+  background-color: var(--color-cart-badge-red);
+  color: var(--color-canvas-white);
+}
+
+.dashboard-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-24);
+}
+
+.actions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--spacing-16);
+}
+
+.action-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-32);
+  background-color: var(--color-canvas-white);
+  border: 1px solid var(--color-hint-of-gray);
+  border-radius: var(--radius-general);
+  font-family: var(--font-arketsansmono);
+  font-size: var(--text-heading);
+  line-height: var(--leading-heading);
+  color: var(--color-ink-black);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.action-card:hover {
+  border-color: var(--color-ink-black);
+}
+
+.action-card.disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.dashboard-help {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+}
+
+.dashboard-help p {
+  color: var(--color-body-text-gray);
+  margin: 0;
+}

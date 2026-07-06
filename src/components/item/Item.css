@@ -76,6 +76,30 @@
   letter-spacing: 0.05em;
 }
 
+.product-rarity {
+  font-family: var(--font-arketsansmono);
+  font-size: var(--text-caption);
+  line-height: var(--leading-caption);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-body-text-gray);
+  margin: 0;
+  padding: 0;
+}
+
+.product-stock {
+  font-family: var(--font-arketsansmono);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-success-green);
+  margin: 0;
+  padding: 0;
+}
+
+.product-stock.out {
+  color: var(--color-cart-badge-red);
+}
+
 .product-action {
   display: flex;
   gap: var(--spacing-8);

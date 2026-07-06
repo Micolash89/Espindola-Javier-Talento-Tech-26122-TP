@@ -6,12 +6,14 @@ import { PublicLayout } from "./layouts/PublicLayout";
 import { AdminLayout } from "./layouts/AdminLayout";
 import { Dashboard } from "./components/adminComponents/dashboard/Dashboard";
 import ProductFormContainer from "./components/adminComponents/ProductFormContainer";
+import Login from "./components/login/Login";
+import { ProtectedRoute } from "./components/protectedRoute/ProtectedRoute";
 
 function App() {
   return (
     <>
       <Routes>
-        <Route path="/admin/*" element={<AdminLayout />}>
+        <Route path="/admin/*" element={<ProtectedRoute><AdminLayout /></ProtectedRoute>}>
           <Route index element={<Dashboard />} />
           <Route path="products/new" element={<ProductFormContainer />} />
           <Route path="products/:id/edit" element={<ProductFormContainer />} />
@@ -20,7 +22,7 @@ function App() {
         <Route element={<PublicLayout />}>
           <Route path="/" element={<ItemListContainer />} />
           <Route path="/products/:id" element={<ItemDetailContainer />} />
-          <Route path="/login" element={<div>Login</div>} />
+          <Route path="/login" element={<Login />} />
           <Route path="/carrito" element={<ItemListContainer />} />
           <Route path="*" element={<NotFound />} />
         </Route>

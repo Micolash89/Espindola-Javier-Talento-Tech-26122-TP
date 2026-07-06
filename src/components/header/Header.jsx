@@ -7,7 +7,7 @@ export default function Header() {
     <header className="header">
       <div>
         <Link to="/">
-          <img src="" alt="" />
+          <img alt="" />
           <span>Reactiva</span>
         </Link>
 

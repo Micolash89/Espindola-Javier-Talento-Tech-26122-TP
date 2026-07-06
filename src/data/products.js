@@ -1,4 +1,4 @@
-[
+export const products = [
   {
     "id": "8a1057a3-5ea7-447b-b0f1-a9f7a0111698",
     "name": "Dracotail Mululu (CR)",
@@ -2430,4 +2430,4 @@
     "active": true,
     "featured": false
   }
-]
+];

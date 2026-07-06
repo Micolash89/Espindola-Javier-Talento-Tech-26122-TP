@@ -66,6 +66,7 @@ export const AuthProvider = ({ children }) => {
       await signOut(auth);
       toast.success("Sesión cerrada");
     } catch (error) {
+      console.log(error);
       toast.error("Error al cerrar sesión");
     }
   };

@@ -245,10 +245,6 @@ textarea:focus {
   padding: 0 var(--spacing-16);
 }
 
-section {
-  padding: var(--section-gap-min) 0;
-}
-
 @keyframes fadeIn {
   from {
     opacity: 0;

@@ -1,0 +1,6 @@
+.item-detail-add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--element-gap);
+}

@@ -7,7 +7,7 @@ export default function Header() {
     <header className="header">
       <div>
         <Link to="/">
-          <img alt="" />
+          <img src="img/rata-duelista-logo-1.jpg" alt="img/rata-duelista-logo-1.jpg" />
           <span>Reactiva</span>
         </Link>
 

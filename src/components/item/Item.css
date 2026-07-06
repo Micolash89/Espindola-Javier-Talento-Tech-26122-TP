@@ -1,12 +1,13 @@
 .product-card {
   background-color: transparent;
   border: none;
-  border-radius: 5px;
-  padding: var(--spacing-16);
-  box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius-general);
+  padding: 15px;
+  border-radius: var(--radius-card);
   display: flex;
   flex-direction: column;
   gap: var(--element-gap);
+  box-shadow: var(--shadow-md);
 }
 
 .product-image {
@@ -108,4 +109,21 @@
 
 .product-action button {
   flex: 1;
+}
+
+@media (max-width: 768px) {
+  .product-title {
+    font-size: var(--text-subheading);
+    line-height: var(--leading-subheading);
+  }
+
+  .product-price {
+    font-size: var(--text-body);
+  }
+}
+
+@media (max-width: 480px) {
+  .product-info {
+    gap: var(--spacing-4);
+  }
 }

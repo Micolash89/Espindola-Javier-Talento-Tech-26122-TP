@@ -20,40 +20,6 @@
   gap: var(--spacing-12);
 }
 
-.btn {
-  font-family: var(--font-arketsansmono);
-  font-size: var(--text-body);
-  line-height: var(--leading-body);
-  padding: var(--spacing-8) var(--spacing-16);
-  border-radius: var(--radius-buttons);
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-block;
-  transition: all 0.2s ease;
-}
-
-.btn.primary {
-  background-color: var(--color-canvas-white);
-  color: var(--color-ink-black);
-  border: 1px solid var(--color-ink-black);
-}
-
-.btn.primary:hover {
-  background-color: var(--color-ink-black);
-  color: var(--color-canvas-white);
-}
-
-.btn.bg-delete {
-  background-color: var(--color-canvas-white);
-  color: var(--color-cart-badge-red);
-  border: 1px solid var(--color-cart-badge-red);
-}
-
-.btn.bg-delete:hover {
-  background-color: var(--color-cart-badge-red);
-  color: var(--color-canvas-white);
-}
-
 .dashboard-actions {
   display: flex;
   flex-direction: column;
@@ -100,4 +66,29 @@
 .dashboard-help p {
   color: var(--color-body-text-gray);
   margin: 0;
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    gap: var(--spacing-48);
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .header-actions .button-square {
+    width: 100%;
+    text-align: center;
+  }
+
+  .actions-grid {
+    grid-template-columns: 1fr;
+  }
 }

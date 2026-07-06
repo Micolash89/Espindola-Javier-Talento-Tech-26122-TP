@@ -56,3 +56,35 @@ nav-item {
   justify-content: center;
   gap: var(--element-gap);
 }
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: var(--spacing-12);
+    padding: var(--spacing-12) 0;
+  }
+
+  header > div {
+    width: 100%;
+    justify-content: center;
+  }
+
+  header a {
+    font-size: var(--text-subheading);
+  }
+
+  header img {
+    width: 40px;
+    height: 40px;
+  }
+
+  header span {
+    font-size: var(--text-subheading);
+  }
+}
+
+@media (max-width: 480px) {
+  header a {
+    font-size: var(--text-body);
+  }
+}

@@ -95,3 +95,30 @@
   align-items: center;
   gap: var(--spacing-8);
 }
+
+@media (max-width: 768px) {
+  .cart-container {
+    gap: var(--spacing-48);
+  }
+
+  .cart-summary {
+    align-items: stretch;
+  }
+
+  .cart-total {
+    font-size: var(--text-heading);
+    line-height: var(--leading-heading);
+    text-align: center;
+  }
+
+  .cart-checkout {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .cart-item-controls {
+    flex-wrap: wrap;
+  }
+}

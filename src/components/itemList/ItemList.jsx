@@ -1,12 +1,21 @@
 import { Link } from 'react-router-dom';
 import './ItemList.css'
 import Item from '../item/Item';
+import Skeleton from '../skeleton/Skeleton';
 
-export default function ItemList({ products }) {
+export default function ItemList({ products, loading }) {
 
-    if (!products.length) {
-        return <div>No hay productos disponibles.</div>;
-    }
+  if (loading) {
+    return (
+      <div className="item-list">
+        <Skeleton count={8} />
+      </div>
+    );
+  }
+
+  if (!products.length) {
+    return <div>No hay productos disponibles.</div>;
+  }
 
   return (
     <div className="item-list">

@@ -72,3 +72,30 @@ nav-item {
   justify-content: center;
   gap: var(--element-gap);
 }
+
+@media (max-width: 768px) {
+  nav ul {
+    gap: var(--spacing-16);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  nav a {
+    font-size: var(--text-caption);
+    gap: var(--spacing-4);
+  }
+
+  .cart-count {
+    bottom: calc(var(--spacing-8) * -1);
+    right: calc(var(--spacing-4) * -1);
+    min-width: var(--spacing-12);
+    height: var(--spacing-12);
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  nav ul {
+    gap: var(--spacing-12);
+  }
+}

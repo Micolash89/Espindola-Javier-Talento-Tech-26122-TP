@@ -11,10 +11,10 @@ export const Dashboard = () => {
         <h2>Panel de administración</h2>
 
         <div className="header-actions">
-          <Link className="btn primary" to="/">
+          <Link className="button-square" to="/">
             Volver a la tienda
           </Link>
-          <button className="btn bg-delete primary" onClick={logout}>
+          <button className="button-square" onClick={logout}>
             Cerrar sesión
           </button>
         </div>

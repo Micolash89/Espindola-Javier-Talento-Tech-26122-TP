@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 import { useAuth } from "../../context/AuthContext";
 import "./Login.css";
 
@@ -10,21 +11,21 @@ export default function Login() {
   const [isRegister, setIsRegister] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("");
 
     try {
       if (isRegister) {
         await register(email, password);
+        toast.success("Cuenta creada con éxito");
       } else {
         await login(email, password);
+        toast.success("Inicio de sesión exitoso");
       }
       navigate("/admin");
     } catch (err) {
-      setError(err.message);
+      toast.error(err.message);
     }
   };
 
@@ -32,8 +33,6 @@ export default function Login() {
     <section className="login-section">
       <form className="login-form" onSubmit={handleSubmit}>
         <h2 className="login-title">{isRegister ? "Registrarse" : "Iniciar sesión"}</h2>
-
-        {error && <p className="login-error">{error}</p>}
 
         <div className="login-field">
           <label htmlFor="email">Email</label>

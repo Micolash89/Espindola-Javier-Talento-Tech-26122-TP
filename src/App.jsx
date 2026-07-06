@@ -8,6 +8,7 @@ import { Dashboard } from "./components/adminComponents/dashboard/Dashboard";
 import ProductFormContainer from "./components/adminComponents/ProductFormContainer";
 import Login from "./components/login/Login";
 import { ProtectedRoute } from "./components/protectedRoute/ProtectedRoute";
+import { CartView } from "./components/cart/CartView";
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
           <Route path="/" element={<ItemListContainer />} />
           <Route path="/products/:id" element={<ItemDetailContainer />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/carrito" element={<ItemListContainer />} />
+          <Route path="/carrito" element={<CartView />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

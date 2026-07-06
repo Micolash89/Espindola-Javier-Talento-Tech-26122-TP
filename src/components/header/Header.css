@@ -1,4 +1,4 @@
-.header {
+header {
   background-color: var(--color-canvas-white);
   border-bottom: 1px solid var(--color-hint-of-gray);
   padding: var(--spacing-16) 0;
@@ -7,12 +7,9 @@
   z-index: 100;
   box-shadow: var(--shadow-md);
   animation: fadeDown 0.28s ease-out;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
-.header > div {
+header > div {
   max-width: var(--max-width-container);
   margin: 0 auto;
   padding: 0 var(--spacing-16);
@@ -21,7 +18,7 @@
   justify-content: space-between;
 }
 
-.header a {
+header a {
   display: flex;
   align-items: center;
   gap: var(--spacing-8);
@@ -34,17 +31,17 @@
   transition: color 0.2s ease;
 }
 
-.header a:hover {
+header a:hover {
   color: var(--color-command-blue);
 }
 
-.header img {
+header img {
   width: 40px;
   height: 40px;
   display: block;
 }
 
-.header span {
+header span {
   font-family: var(--font-arketsansmono);
   font-size: var(--text-heading);
   line-height: var(--leading-heading);

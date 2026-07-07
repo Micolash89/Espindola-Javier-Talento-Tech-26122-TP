@@ -12,7 +12,7 @@ export const CartSummary = () => {
         Total: <span>${total.toFixed(2)}</span>
       </p>
       <button className="button-square cart-checkout" onClick={checkout}>
-        <CreditCard size={16} />
+        <CreditCard size={20} />
         Finalizar compra
       </button>
     </div>

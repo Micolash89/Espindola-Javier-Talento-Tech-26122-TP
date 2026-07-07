@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ShoppingCart } from "lucide-react";
+import { Home, ShoppingCart } from "lucide-react";
 import { useCart } from "../../context/CartContext";
 import { CartList } from "./CartList";
 import { CartSummary } from "./CartSummary";
@@ -14,15 +14,18 @@ export const CartView = () => {
 
       {cart.length ? (
         <>
-          <CartList />
-          <CartSummary />
+          <div className="cart-list-summary">
+            <CartList />
+            <CartSummary />
+          </div>
         </>
       ) : (
         <div className="cart-empty">
           <ShoppingCart size={48} className="cart-empty-icon" />
           <p className="cart-empty-text">El carrito esta vacio</p>
-          <Link to="/" className="button-square">
-            Volver a la tienda
+          <Link to="/" className="button-square cart-empty-button">
+            <Home size={20} />
+            <span>Volver a la tienda</span>
           </Link>
         </div>
       )}

@@ -10,12 +10,33 @@
   box-shadow: var(--shadow-md);
 }
 
+.product-card-cart{
+  background-color: var(--color-canvas-white);
+  border: 1px solid var(--color-soft-graphite);
+  border-radius: var(--radius-card);
+  padding: 15px;
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  box-shadow: var(--shadow-md);
+  position:relative;
+  
+}
+
 .product-image {
   width: 100%;
   overflow: hidden;
   border-radius: var(--radius-general);
   margin-bottom: var(--spacing-12);
 }
+
+.product-card-cart >div >img{
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: var(--radius-general);
+}
+
 
 .product-image img {
   width: 100%;

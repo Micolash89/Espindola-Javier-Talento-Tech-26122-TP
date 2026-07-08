@@ -1,27 +1,10 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import { toast } from "sonner";
-import {  Upload } from "lucide-react";
 import "./Dashboard.css";
 import { useAuth } from "../../../context/AuthContext";
-import { seedProductsToFirestore } from "../../../services/seedProducts";
 import Seo from "../../seo/Seo";
 
 export const Dashboard = () => {
   const { logout } = useAuth();
-  const [seeding, setSeeding] = useState(false);
-
-  const handleSeed = async () => {
-    setSeeding(true);
-    try {
-      const ids = await seedProductsToFirestore();
-      toast.success(`${ids.length} productos sincronizados a Firestore`);
-    } catch (err) {
-      toast.error(err.message);
-    } finally {
-      setSeeding(false);
-    }
-  };
 
   return (
     <div className="dashboard">
@@ -54,11 +37,6 @@ export const Dashboard = () => {
           <Link to="#" className="action-card disabled">
              Eliminar
           </Link>
-
-          <button className="action-card" onClick={handleSeed} disabled={seeding}>
-            <Upload size={20} />
-            {seeding ? "Sincronizando..." : "Sincronizar productos"}
-          </button>
         </div>
       </section>
 

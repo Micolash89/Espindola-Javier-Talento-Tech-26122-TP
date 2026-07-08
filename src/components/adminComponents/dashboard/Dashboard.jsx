@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import "./Dashboard.css";
 import { useAuth } from "../../../context/AuthContext";
 import Seo from "../../seo/Seo";
+import { Home, LayoutDashboard, LogOut, Pencil, Plus, Trash2 } from "lucide-react";
 
 export const Dashboard = () => {
   const { logout } = useAuth();
@@ -10,14 +11,27 @@ export const Dashboard = () => {
     <div className="dashboard">
       <Seo title="Panel de administración" />
       <header className="dashboard-header">
-        <h2>Panel de administración</h2>
+        <div>
+          <LayoutDashboard size={40} />
+          <h2>Panel de administración</h2>
+        </div>
 
         <div className="header-actions">
-          <Link className="button-square" to="/" aria-label="Volver a la tienda">
-            Volver a la tienda
+          <Link
+            className="button-square dashboard-header-button"
+            to="/"
+            aria-label="Volver a la tienda"
+          >
+            <Home size={20} />
+            <span>Volver a la tienda</span>
           </Link>
-          <button className="button-square" onClick={logout} aria-label="Cerrar sesión">
-            Cerrar sesión
+          <button
+            className="button-square dashboard-header-button"
+            onClick={logout}
+            aria-label="Cerrar sesión"
+          >
+            <LogOut size={20} />
+            <span>Cerrar sesión</span>
           </button>
         </div>
       </header>
@@ -27,15 +41,18 @@ export const Dashboard = () => {
 
         <div className="actions-grid">
           <Link to="/admin/products/new" className="action-card">
-             Cargar
+            <Plus size={22} />
+            <span>Cargar</span>
           </Link>
 
           <Link to="#" className="action-card disabled">
-             Modificar
+            <Pencil size={22} />
+            <span>Modificar</span>
           </Link>
 
           <Link to="#" className="action-card disabled">
-             Eliminar
+            <Trash2 size={22} />
+            <span>Eliminar</span>
           </Link>
         </div>
       </section>

@@ -20,11 +20,12 @@ export default function Login() {
       if (isRegister) {
         await register(email, password);
         toast.success("Cuenta creada con éxito");
+        navigate("/");
       } else {
         await login(email, password);
         toast.success("Inicio de sesión exitoso");
+        navigate("/");
       }
-      navigate("/admin");
     } catch (err) {
       toast.error(err.message);
     }

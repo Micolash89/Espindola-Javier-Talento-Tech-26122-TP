@@ -22,7 +22,7 @@ export default function PaginationControls({ page, totalPages }) {
         aria-label="Página anterior"
       >
         <ChevronLeft size={16} />
-        Anterior
+        <span>Anterior</span>
       </button>
 
       <span className="pagination-info">
@@ -35,7 +35,7 @@ export default function PaginationControls({ page, totalPages }) {
         disabled={page >= totalPages}
         aria-label="Página siguiente"
       >
-        Siguiente
+        <span>Siguiente</span>
         <ChevronRight size={16} />
       </button>
     </div>

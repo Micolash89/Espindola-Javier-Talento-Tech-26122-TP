@@ -20,22 +20,26 @@ export default function ItemListContainer() {
   const rawPage = Number(searchParams.get("page")) || 1;
 
   useEffect(() => {
-    getProducts()
+    getProducts(search)
       .then((data) => setAllProducts(data))
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
-  }, []);
+  }, [search]);
 
-  const filtered = search
-    ? allProducts.filter((p) =>
-        p.name?.toLowerCase().includes(search.toLowerCase())
-      )
-    : allProducts;
-
-  const { pageItems, totalPages, safePage } = useLocalPagination(filtered, rawPage);
+  const { pageItems, totalPages, safePage } = useLocalPagination(
+    allProducts,
+    rawPage,
+  );
 
   if (loading) return <Loading />;
-  if (error) return <ErrorMessage message={error} actionLabel="Volver al inicio" actionHref="/" />;
+  if (error)
+    return (
+      <ErrorMessage
+        message={error}
+        actionLabel="Volver al inicio"
+        actionHref="/"
+      />
+    );
 
   return (
     <section className="items-list-section">

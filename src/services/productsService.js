@@ -6,18 +6,30 @@ import {
   doc,
   query,
   where,
+  setDoc,
+  deleteDoc,
 } from "firebase/firestore";
 import firebase from "../firebase/config";
 const { db } = firebase;
 
 const productsRef = collection(db, "products");
 
-export const getProducts = async () => {
+export const getProducts = async (name = "") => {
   try {
     const snapshot = await getDocs(productsRef);
-    return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-  } catch (err) {
-    console.error("Error al traer productos:", err);
+    const products = snapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+
+    if (!name) return products;
+
+    const search = name.toLowerCase().trim();
+    return products.filter((product) =>
+      product.name.toLowerCase().includes(search),
+    );
+  } catch (error) {
+    console.error("Error al filtrar productos:", error);
     return [];
   }
 };
@@ -37,10 +49,10 @@ export const getProductById = async (id) => {
   }
 };
 
-export const getByCategory = async (category) => {
+export const getByName = async (name) => {
   try {
-    const queryRef = category
-      ? query(productsRef, where("category", "==", category))
+    const queryRef = name
+      ? query(productsRef, where("name", "==", name))
       : productsRef;
 
     const snapshot = await getDocs(queryRef);
@@ -57,6 +69,26 @@ export const createProduct = async (productData) => {
     return docRef.id;
   } catch (error) {
     console.error("Error al crear producto:", error);
+    throw error;
+  }
+};
+
+export const updateProduct = async (id, updatedData) => {
+  try {
+    const productRef = doc(db, "products", id);
+    await setDoc(productRef, updatedData, { merge: true });
+  } catch (error) {
+    console.error("Error al actualizar producto:", error);
+    throw error;
+  }
+};
+
+export const deleteProduct = async (id) => {
+  try {
+    const productRef = doc(db, "products", id);
+    await deleteDoc(productRef);
+  } catch (error) {
+    console.error("Error al eliminar producto:", error);
     throw error;
   }
 };

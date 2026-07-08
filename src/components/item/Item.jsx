@@ -5,7 +5,6 @@ export default function Item({ name, price, img, rarity, stock, children }) {
   const nameTruncated = name.length > 20 ? `${name.substring(0, 20)}...` : name;
 
   const location = useLocation();
-  console.log(location.pathname);
 
   return (
     <div

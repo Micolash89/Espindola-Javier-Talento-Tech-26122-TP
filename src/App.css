@@ -54,6 +54,7 @@
   --section-gap-max: 128px;
   --card-padding: 16px;
   --element-gap: 8px;
+  --element-gap-2: 6px;
   --max-width-container: 1200px;
 }
 

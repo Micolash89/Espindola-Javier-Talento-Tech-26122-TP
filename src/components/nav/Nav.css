@@ -66,11 +66,11 @@ nav a:focus {
   pointer-events: none;
 }
 
-nav-item {
+.nav-item {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--element-gap);
+  gap: var(--element-gap-2);
 }
 
 @media (max-width: 768px) {

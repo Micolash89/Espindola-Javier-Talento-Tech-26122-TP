@@ -11,7 +11,7 @@ export const CartSummary = () => {
       <p className="cart-total">
         Total: <span>${total.toFixed(2)}</span>
       </p>
-      <button className="button-square cart-checkout" onClick={checkout}>
+      <button className="button-square cart-checkout" onClick={checkout} aria-label="Finalizar compra">
         <CreditCard size={20} />
         Finalizar compra
       </button>

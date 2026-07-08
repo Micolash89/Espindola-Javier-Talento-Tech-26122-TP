@@ -17,16 +17,16 @@ export default function Nav() {
   const totalItems = countTotalItems();
 
   return (
-    <nav>
+    <nav aria-label="Navegación principal">
       <ul>
         <li>
-          <Link to="/" className="nav-item">
+          <Link to="/" className="nav-item" aria-label="Home">
             <Home size={16} />
             <span>Home</span>
           </Link>
         </li>
         <li>
-          <Link to="/carrito" className="nav-item">
+          <Link to="/carrito" className="nav-item" aria-label="Carrito de compras">
             <ShoppingCart size={16} />
             <span>Carrito</span>
           </Link>
@@ -34,7 +34,7 @@ export default function Nav() {
         </li>
         {!user && (
           <li>
-            <Link to="/login" className="nav-item">
+            <Link to="/admin/login" className="nav-item" aria-label="Iniciar sesión">
               <User size={16} />
               <span>Ingresar</span>
             </Link>
@@ -42,7 +42,7 @@ export default function Nav() {
         )}
         {userData?.role === "admin" && (
           <li>
-            <Link to="/admin" className="nav-item">
+            <Link to="/admin" className="nav-item" aria-label="Panel de administración">
               <LayoutDashboard size={16} />
               <span>Admin</span>
             </Link>
@@ -51,7 +51,7 @@ export default function Nav() {
 
         {user && (
           <li>
-            <Link to="/logout" className="nav-item">
+            <Link to="/logout" className="nav-item" aria-label="Cerrar sesión">
               <LogOut size={16} />
               <span>Cerrar sesión</span>
             </Link>

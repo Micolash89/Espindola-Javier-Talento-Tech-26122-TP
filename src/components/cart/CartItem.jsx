@@ -27,6 +27,7 @@ export const CartItem = ({ item }) => {
                 : "Reducir cantidad"
             }
             type="button"
+            aria-label="Reducir cantidad"
           >
             <Minus size={16} />
           </button>
@@ -37,6 +38,7 @@ export const CartItem = ({ item }) => {
             title="Aumentar cantidad"
             disabled={item.stock <= item.quantity}
             type="button"
+            aria-label="Aumentar cantidad"
           >
             <Plus size={16} />
           </button>
@@ -46,6 +48,7 @@ export const CartItem = ({ item }) => {
           onClick={() => handleUpdateQuantity(item.id, 0)}
           title="Eliminar producto"
           type="button"
+          aria-label="Eliminar producto"
         >
           <Trash2 size={20} />
         </button>

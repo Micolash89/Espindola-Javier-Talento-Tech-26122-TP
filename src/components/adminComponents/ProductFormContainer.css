@@ -1,5 +1,73 @@
 .product-form-section {
-  max-width: var(--max-width-container);
+  max-width: 600px;
   margin: 0 auto;
   padding: var(--section-gap-min) var(--spacing-16);
+}
+
+.product-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-24);
+}
+
+.product-form h2 {
+  margin: 0;
+  text-align: center;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+}
+
+.form-field label {
+  font-family: var(--font-arketsansmono);
+  font-size: var(--text-body);
+  color: var(--color-ink-black);
+}
+
+.form-error {
+  font-family: var(--font-arketsansmono);
+  font-size: var(--text-caption);
+  color: var(--color-cart-badge-red);
+  margin: 0;
+}
+
+.form-error--general {
+  text-align: center;
+  padding: var(--spacing-8);
+  border: 1px solid var(--color-cart-badge-red);
+  border-radius: var(--radius-inputs);
+}
+
+.success-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-24);
+  text-align: center;
+  padding: var(--spacing-64) 0;
+}
+
+.success-icon {
+  color: var(--color-success-green);
+}
+
+.success-id {
+  font-family: var(--font-arketsansmono);
+  font-size: var(--text-caption);
+  color: var(--color-body-text-gray);
+  margin: 0;
+}
+
+.success-text {
+  font-family: var(--font-arketsansmono);
+  font-size: var(--text-body);
+  color: var(--color-body-text-gray);
+  margin: 0;
+}
+
+.success-page .button-square {
+  min-width: 200px;
 }

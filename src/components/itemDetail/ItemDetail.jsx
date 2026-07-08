@@ -8,7 +8,7 @@ export default function ItemDetail({ item }) {
 
   return (
     <Item {...item}>
-      <button className="button-square item-detail-add" onClick={() => addToCart(item)}>
+      <button className="button-square item-detail-add" onClick={() => addToCart(item)} aria-label="Agregar al carrito">
         <ShoppingCart size={16} />
 
         <span>Agregar al carrito</span>

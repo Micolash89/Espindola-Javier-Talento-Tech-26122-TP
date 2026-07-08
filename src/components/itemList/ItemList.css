@@ -38,6 +38,15 @@
   outline-offset: 4px;
 }
 
+.item-list-empty {
+  font-family: var(--font-arketsansmono);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  color: var(--color-body-text-gray);
+  text-align: center;
+  padding: var(--spacing-48) 0;
+}
+
 @media (max-width: 768px) {
   .item-list {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));

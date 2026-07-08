@@ -6,8 +6,8 @@ export default function Header() {
   return (
     <header className="header">
       <div>
-        <Link to="/">
-          <img src="img/rata-duelista-logo-1.jpg" alt="img/rata-duelista-logo-1.jpg" />
+        <Link to="/" aria-label="Volver al inicio">
+          <img src="img/rata-duelista-logo-1.jpg" alt="Logo de Reactiva" />
           <span>Reactiva</span>
         </Link>
 

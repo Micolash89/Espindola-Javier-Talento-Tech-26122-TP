@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { useAuth } from "../../context/AuthContext";
+import Seo from "../seo/Seo";
 import "./login.css";
 
 export default function Login() {
@@ -31,6 +32,7 @@ export default function Login() {
 
   return (
     <section className="login-section">
+      <Seo title={isRegister ? "Registrarse" : "Iniciar sesión"} />
       <form className="login-form" onSubmit={handleSubmit}>
         <h2 className="login-title">{isRegister ? "Registrarse" : "Iniciar sesión"}</h2>
 
@@ -56,7 +58,7 @@ export default function Login() {
           />
         </div>
 
-        <button type="submit" className="button-square">
+        <button type="submit" className="button-square" aria-label={isRegister ? "Crear cuenta" : "Iniciar sesión"}>
           {isRegister ? "Crear cuenta" : "Entrar"}
         </button>
 
@@ -66,6 +68,7 @@ export default function Login() {
             type="button"
             className="button-ghost"
             onClick={() => setIsRegister(!isRegister)}
+            aria-label={isRegister ? "Ir a iniciar sesión" : "Ir a registrarse"}
           >
             {isRegister ? "Iniciar sesión" : "Registrarse"}
           </button>

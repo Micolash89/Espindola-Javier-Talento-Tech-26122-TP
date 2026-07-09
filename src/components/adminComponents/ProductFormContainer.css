@@ -126,3 +126,18 @@
   gap: var(--spacing-8);
   justify-content: center;
 }
+
+.form-hint {
+  font-family: var(--font-arketsansmono);
+  font-size: var(--text-caption);
+  color: var(--color-body-text-gray);
+  margin: 0;
+}
+
+.loading-text {
+  text-align: center;
+  font-family: var(--font-arketsansmono);
+  font-size: var(--text-body);
+  color: var(--color-body-text-gray);
+  padding: var(--spacing-64) 0;
+}

@@ -4,11 +4,11 @@ import "./ItemListContainer.css";
 import ItemList from "../itemList/ItemList";
 import SearchBar from "../searchBar/SearchBar";
 import PaginationControls from "../pagination/PaginationControls";
-import Loading from "../loading/Loading";
 import ErrorMessage from "../error/ErrorMessage";
 import Seo from "../seo/Seo";
 import useLocalPagination from "../../hooks/useLocalPagination";
 import { getProducts } from "../../services/productsService";
+import Skeleton, { SkeletonSearchBar } from "../skeleton/Skeleton";
 
 export default function ItemListContainer() {
   const [allProducts, setAllProducts] = useState([]);
@@ -31,7 +31,19 @@ export default function ItemListContainer() {
     rawPage,
   );
 
-  if (loading) return <Loading />;
+  if (loading)
+    return (
+      <div className="items-list-container">
+        {/* <div className="items-list-header">
+          <h2 className="items-list-heading">Catálogo de cartas</h2>
+          <SearchBar />
+        </div> */}
+        <SkeletonSearchBar />
+        <div className="item-list">
+          <Skeleton count={9} />
+        </div>
+      </div>
+    );
   if (error)
     return (
       <ErrorMessage

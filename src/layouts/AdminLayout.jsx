@@ -1,9 +1,13 @@
 import { Outlet } from "react-router-dom";
+import HeaderDashboard from "../components/adminComponents/dashboard/HeaderDashboard";
 
 export const AdminLayout = () => {
   return (
-    <main className="container">
-      <Outlet />
-    </main>
+    <>
+      <HeaderDashboard />
+      <main className="container">
+        <Outlet />
+      </main>
+    </>
   );
 };

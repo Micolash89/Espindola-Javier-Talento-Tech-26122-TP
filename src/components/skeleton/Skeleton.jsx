@@ -12,3 +12,12 @@ export default function Skeleton({ count = 1 }) {
     </div>
   ));
 }
+
+
+export function SkeletonSearchBar() {
+  return (
+    <div className="skeleton-search-bar">
+      <div className="skeleton-line skeleton-line--search" />
+    </div>
+  );
+}

@@ -8,6 +8,7 @@ export const validateProduct = ({
   product_line_name,
   stock,
   file,
+  existingImage,
 }) => {
   const errors = {};
 
@@ -43,7 +44,7 @@ export const validateProduct = ({
     errors.stock = "El stock debe ser 0 o mayor";
   }
 
-  if (!file) {
+  if (!file && !existingImage) {
     errors.file = "Debe seleccionar una imagen";
   }
 

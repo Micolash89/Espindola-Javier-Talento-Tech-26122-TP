@@ -1,66 +1,65 @@
-import { Link } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import "./Dashboard.css";
-import { useAuth } from "../../../context/AuthContext";
 import Seo from "../../seo/Seo";
-import { Home, LayoutDashboard, LogOut, Pencil, Plus, Trash2 } from "lucide-react";
+import SearchBar from "../../searchBar/SearchBar";
+import ErrorMessage from "../../error/ErrorMessage";
+import TableDashboard from "./TableDashboard";
+import PaginationControls from "../../pagination/PaginationControls";
+import { useEffect, useState } from "react";
+import { getProducts } from "../../../services/productsService";
+import useLocalPagination from "../../../hooks/useLocalPagination";
+import ProductNewButton from "./ProductNewButton";
 
 export const Dashboard = () => {
-  const { logout } = useAuth();
+  const [allProducts, setAllProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  const [searchParams] = useSearchParams();
+  const search = searchParams.get("search") || "";
+  const rawPage = Number(searchParams.get("page")) || 1;
+
+  const fetchProducts = () => {
+    getProducts(search)
+      .then((data) => setAllProducts(data))
+      .catch((err) => setError(err.message))
+      .finally(() => setLoading(false));
+  };
+
+  useEffect(() => {
+    fetchProducts();
+  }, [search]);
+
+  const { pageItems, totalPages, safePage } = useLocalPagination(
+    allProducts,
+    rawPage,
+  );
+
+  if (error)
+    return (
+      <ErrorMessage
+        message={error}
+        actionLabel="Volver al inicio"
+        actionHref="/"
+      />
+    );
 
   return (
     <div className="dashboard">
       <Seo title="Panel de administración" />
-      <header className="dashboard-header">
-        <div>
-          <LayoutDashboard size={40} />
-          <h2>Panel de administración</h2>
-        </div>
 
-        <div className="header-actions">
-          <Link
-            className="button-square dashboard-header-button"
-            to="/"
-            aria-label="Volver a la tienda"
-          >
-            <Home size={20} />
-            <span>Volver a la tienda</span>
-          </Link>
-          <button
-            className="button-square dashboard-header-button"
-            onClick={logout}
-            aria-label="Cerrar sesión"
-          >
-            <LogOut size={20} />
-            <span>Cerrar sesión</span>
-          </button>
-        </div>
-      </header>
+      <div className="dashboard-header--actions">
+        <SearchBar />
+        <ProductNewButton />
+      </div>
 
-      <section className="dashboard-actions">
-        <h3>Acciones rápidas</h3>
+      <TableDashboard
+        products={pageItems}
+        loading={loading}
+        onUpdate={fetchProducts}
+      />
 
-        <div className="actions-grid">
-          <Link to="/admin/products/new" className="action-card">
-            <Plus size={22} />
-            <span>Cargar</span>
-          </Link>
-
-          <Link to="#" className="action-card disabled">
-            <Pencil size={22} />
-            <span>Modificar</span>
-          </Link>
-
-          <Link to="#" className="action-card disabled">
-            <Trash2 size={22} />
-            <span>Eliminar</span>
-          </Link>
-        </div>
-      </section>
-
-      <section className="dashboard-help">
-        <h3>Ayuda</h3>
-        <p>Desde este panel podés gestionar los productos de la tienda.</p>
-      </section>
+      <PaginationControls page={safePage} totalPages={totalPages} />
     </div>
   );
 };

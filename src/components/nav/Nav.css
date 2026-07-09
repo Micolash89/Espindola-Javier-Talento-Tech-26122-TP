@@ -37,18 +37,19 @@ nav a {
 }
 
 nav a:hover {
-  color: var(--color-command-blue);
+  color: var(--color-body-text-gray);
 }
 
-nav a:focus {
-  outline: 2px solid var(--color-command-blue);
+nav a:focus, nav button:focus {
+  outline: 2px solid var(--color-body-text-gray);
   outline-offset: 2px;
   border-radius: var(--radius-buttons);
+  color: var(--color-body-text-gray);
 }
 
 .cart-count {
   position: absolute;
-  bottom: calc(var(--spacing-8) * -.5);
+  bottom: calc(var(--spacing-8) * -0.5);
   right: calc(var(--spacing-8) * -1);
   min-width: var(--spacing-16);
   height: var(--spacing-16);
@@ -83,6 +84,10 @@ nav a:focus {
   nav a {
     font-size: var(--text-caption);
     gap: var(--spacing-4);
+  }
+
+  nav ul li span{
+    display: none;
   }
 
   .cart-count {

@@ -7,7 +7,6 @@ import {
   query,
   where,
   setDoc,
-  deleteDoc,
 } from "firebase/firestore";
 import firebase from "../firebase/config";
 const { db } = firebase;
@@ -83,12 +82,3 @@ export const updateProduct = async (id, updatedData) => {
   }
 };
 
-export const deleteProduct = async (id) => {
-  try {
-    const productRef = doc(db, "products", id);
-    await deleteDoc(productRef);
-  } catch (error) {
-    console.error("Error al eliminar producto:", error);
-    throw error;
-  }
-};

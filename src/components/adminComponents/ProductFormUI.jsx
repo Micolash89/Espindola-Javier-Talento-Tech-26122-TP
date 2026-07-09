@@ -6,6 +6,8 @@ export default function ProductFormUI({
   errors,
   loading,
   categories,
+  fileName,
+  isEditing,
   rarityOptions,
   typeOptions,
   productLineOptions,
@@ -15,9 +17,9 @@ export default function ProductFormUI({
 }) {
   return (
     <section className="product-form-section">
-      <Seo title="Cargar producto" />
+      <Seo title={isEditing ? "Editar producto" : "Cargar producto"} />
       <form className="product-form" onSubmit={onSubmit}>
-        <h2>Agregar nueva carta</h2>
+        <h2>{isEditing ? "Editar carta" : "Agregar nueva carta"}</h2>
 
         <div className="form-field">
           <label htmlFor="name">Nombre</label>
@@ -152,9 +154,9 @@ export default function ProductFormUI({
         </div>
 
         <div className="form-field">
-          <label htmlFor="image" className="form-field--image">
+          <label htmlFor="image" className={`form-field--image${fileName ? " has-file" : ""}`}>
             <Upload size={20} />
-            <span>{ "Imagen"}</span>
+            <span>{fileName || "Imagen"}</span>
           </label>
           <input
             id="image"
@@ -164,11 +166,14 @@ export default function ProductFormUI({
             hidden
           />
           {errors.file && <p className="form-error">{errors.file}</p>}
+          {isEditing && !fileName && (
+            <p className="form-hint">Dejalo vacío para mantener la imagen actual</p>
+          )}
         </div>
-
+        
         <button className="button-square product-form-submit" type="submit" disabled={loading}>
           <Save size={20} />
-          <span>{loading ? "Guardando..." : "Guardar"}</span>
+          <span>{loading ? "Guardando..." : isEditing ? "Actualizar" : "Guardar"}</span>
         </button>
 
         {errors.general && (

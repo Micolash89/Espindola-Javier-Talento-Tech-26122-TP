@@ -4,3 +4,7 @@
   justify-content: center;
   gap: var(--element-gap);
 }
+
+.item-detail-add-enabled{
+cursor :not-allowed;
+}

@@ -34,10 +34,6 @@ export default function ItemListContainer() {
   if (loading)
     return (
       <div className="items-list-container">
-        {/* <div className="items-list-header">
-          <h2 className="items-list-heading">Catálogo de cartas</h2>
-          <SearchBar />
-        </div> */}
         <SkeletonSearchBar />
         <div className="item-list">
           <Skeleton count={9} />

@@ -11,6 +11,7 @@ export default function PaginationControls({ page, totalPages }) {
     const next = new URLSearchParams(searchParams);
     next.set("page", String(p));
     setSearchParams(next);
+    window.scrollTo(0, 0);
   };
 
   return (

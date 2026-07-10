@@ -16,6 +16,28 @@ const productsRef = collection(db, "products");
 export const getProducts = async (name = "") => {
   try {
     const snapshot = await getDocs(productsRef);
+    const products = snapshot.docs
+      .map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }))
+      .filter((product) => product.active === true);
+
+    if (!name) return products;
+
+    const search = name.toLowerCase().trim();
+    return products.filter((product) =>
+      product.name.toLowerCase().includes(search),
+    );
+  } catch (error) {
+    console.error("Error al filtrar productos:", error);
+    return [];
+  }
+};
+
+export const getAllAdminProducts = async (name = "") => {
+  try {
+    const snapshot = await getDocs(productsRef);
     const products = snapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
@@ -81,4 +103,3 @@ export const updateProduct = async (id, updatedData) => {
     throw error;
   }
 };
-

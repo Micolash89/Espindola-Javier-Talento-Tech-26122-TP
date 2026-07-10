@@ -6,7 +6,7 @@ import ErrorMessage from "../../error/ErrorMessage";
 import TableDashboard from "./TableDashboard";
 import PaginationControls from "../../pagination/PaginationControls";
 import { useEffect, useState } from "react";
-import { getProducts } from "../../../services/productsService";
+import { getAllAdminProducts } from "../../../services/productsService";
 import useLocalPagination from "../../../hooks/useLocalPagination";
 import ProductNewButton from "./ProductNewButton";
 
@@ -20,7 +20,7 @@ export const Dashboard = () => {
   const rawPage = Number(searchParams.get("page")) || 1;
 
   const fetchProducts = () => {
-    getProducts(search)
+    getAllAdminProducts(search)
       .then((data) => setAllProducts(data))
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));

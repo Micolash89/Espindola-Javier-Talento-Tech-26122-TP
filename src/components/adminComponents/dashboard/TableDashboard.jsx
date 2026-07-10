@@ -1,7 +1,8 @@
-import { Pencil, Power, PowerOff } from "lucide-react";
+import { PenLine, Power, PowerOff } from "lucide-react";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import { updateProduct } from "../../../services/productsService";
+import { SkeletonTableDesktop } from "../../skeleton/Skeleton";
 
 export default function TableDashboard({ products, loading, onUpdate }) {
   const handleToggleActive = async (product) => {
@@ -17,39 +18,7 @@ export default function TableDashboard({ products, loading, onUpdate }) {
   };
 
   if (loading) {
-    return (
-      <section className="table-dashboard">
-        <h3>Productos</h3>
-        <div className="table-wrapper">
-          <table className="table-dashboard-table">
-            <thead>
-              <tr>
-                <th>Nombre</th>
-                <th>Tipo</th>
-                <th>Rareza</th>
-                <th>Precio</th>
-                <th>Stock</th>
-                <th>Activo</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              {Array.from({ length: 5 }).map((_, i) => (
-                <tr key={i}>
-                  <td><div className="skeleton-line skeleton-line--name" /></td>
-                  <td><div className="skeleton-line skeleton-line--short" /></td>
-                  <td><div className="skeleton-line skeleton-line--short" /></td>
-                  <td><div className="skeleton-line skeleton-line--short" /></td>
-                  <td><div className="skeleton-line skeleton-line--short" /></td>
-                  <td><div className="skeleton-line skeleton-line--dot" /></td>
-                  <td><div className="skeleton-line skeleton-line--btn" /></td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
-    );
+    return <SkeletonTableDesktop cont={8} />;
   }
 
   if (!products || products.length === 0) {
@@ -74,7 +43,8 @@ export default function TableDashboard({ products, loading, onUpdate }) {
               <th>Precio</th>
               <th>Stock</th>
               <th>Activo</th>
-              <th>Acciones</th>
+              <th>Editar</th>
+              <th>Estado</th>
             </tr>
           </thead>
           <tbody>
@@ -82,7 +52,7 @@ export default function TableDashboard({ products, loading, onUpdate }) {
               <tr key={product.id}>
                 <td className="td-name">{product.name}</td>
                 <td>{product.type}</td>
-                <td>{product.rarity}</td>
+                <td className="td-rarity">{product.rarity}</td>
                 <td>${product.price}</td>
                 <td>{product.stock}</td>
                 <td>
@@ -95,13 +65,21 @@ export default function TableDashboard({ products, loading, onUpdate }) {
                     to={`/admin/products/edit/${product.id}`}
                     className="table-action-btn"
                     aria-label="Modificar producto"
+                    title="Modificar producto"
                   >
-                    <Pencil size={16} />
+                    <PenLine size={16} />
                   </Link>
+                </td>
+                <td className="td-actions">
                   <button
                     className="table-action-btn"
                     onClick={() => handleToggleActive(product)}
                     aria-label={
+                      product.active
+                        ? "Desactivar producto"
+                        : "Activar producto"
+                    }
+                    title={
                       product.active
                         ? "Desactivar producto"
                         : "Activar producto"

@@ -57,6 +57,7 @@
 .cart-item-row {
   border-bottom: 1px solid var(--color-hint-of-gray);
   padding-bottom: var(--spacing-16);
+  width: 100%;
 }
 
 .cart-item-controls {

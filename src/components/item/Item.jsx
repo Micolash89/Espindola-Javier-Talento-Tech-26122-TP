@@ -12,18 +12,18 @@ export default function Item({ name, price, img, rarity, stock, children }) {
       className={`product-card ${location.pathname === "/carrito" ? " product-card-cart " : ""}`}
     >
       <div
-        className={
-          location.pathname === "/carrito"
-            ? "product-image-admin"
-            : "product-image"
-        }
+        className={`${stock == 0 ? " product-card-image-disabled " : ""} ${location.pathname === "/carrito" ? " product-card-image-cart " : ""}`}
       >
         <img src={img} alt={name} />
+
+        {stock == 0 && (
+          <div className="product-card-image-disabled-overlay">Agotado</div>
+        )}
       </div>
 
       <div>
         <div className="product-info">
-          <h3 className="product-title">
+          <h3 className="product-title" title={name}>
             {location.pathname !== "/" ? name : nameTruncated}
           </h3>
           {<p className="product-rarity">{rarity}</p>}

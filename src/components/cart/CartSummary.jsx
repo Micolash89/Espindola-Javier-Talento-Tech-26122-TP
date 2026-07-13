@@ -17,7 +17,7 @@ export const CartSummary = () => {
       </p>
       {!user && (
         <Link
-          to="/login"
+          to="/login?redirect=carrito"
           className="button-square cart-checkout"
           aria-label="Iniciar sesión para finalizar compra"
         >

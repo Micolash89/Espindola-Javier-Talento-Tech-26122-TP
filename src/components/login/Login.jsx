@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSearchParams } from "react-router";
 import { toast } from "sonner";
 import { useAuth } from "../../context/AuthContext";
 import Seo from "../seo/Seo";
@@ -8,10 +9,11 @@ import "./login.css";
 export default function Login() {
   const { login, register } = useAuth();
   const navigate = useNavigate();
-
+  const [searchParams] = useSearchParams();
   const [isRegister, setIsRegister] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const redirect = searchParams.get("redirect");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,11 +22,15 @@ export default function Login() {
       if (isRegister) {
         await register(email, password);
         toast.success("Cuenta creada con éxito");
-        navigate("/");
+        navigate("/" + redirect || "/");
       } else {
         await login(email, password);
         toast.success("Inicio de sesión exitoso");
-        navigate("/");
+        if (redirect) {
+          navigate(`/${redirect}`);
+        } else {
+          navigate("/");
+        }
       }
     } catch (err) {
       toast.error(err.message);
@@ -35,7 +41,9 @@ export default function Login() {
     <section className="login-section">
       <Seo title={isRegister ? "Registrarse" : "Iniciar sesión"} />
       <form className="login-form" onSubmit={handleSubmit}>
-        <h2 className="login-title">{isRegister ? "Registrarse" : "Iniciar sesión"}</h2>
+        <h2 className="login-title">
+          {isRegister ? "Registrarse" : "Iniciar sesión"}
+        </h2>
 
         <div className="login-field">
           <label htmlFor="email">Email</label>
@@ -59,7 +67,11 @@ export default function Login() {
           />
         </div>
 
-        <button type="submit" className="button-square" aria-label={isRegister ? "Crear cuenta" : "Iniciar sesión"}>
+        <button
+          type="submit"
+          className="button-square"
+          aria-label={isRegister ? "Crear cuenta" : "Iniciar sesión"}
+        >
           {isRegister ? "Crear cuenta" : "Entrar"}
         </button>
 

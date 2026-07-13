@@ -4,6 +4,7 @@ import Seo from "../../seo/Seo";
 import SearchBar from "../../searchBar/SearchBar";
 import ErrorMessage from "../../error/ErrorMessage";
 import TableDashboard from "./TableDashboard";
+import TableDashboardMobile from "./TableDashboardMobile";
 import PaginationControls from "../../pagination/PaginationControls";
 import { useEffect, useState } from "react";
 import { getAllAdminProducts } from "../../../services/productsService";
@@ -53,11 +54,20 @@ export const Dashboard = () => {
         <ProductNewButton />
       </div>
 
-      <TableDashboard
-        products={pageItems}
-        loading={loading}
-        onUpdate={fetchProducts}
-      />
+      <div className="table-desktop-wrap">
+        <TableDashboard
+          products={pageItems}
+          loading={loading}
+          onUpdate={fetchProducts}
+        />
+      </div>
+      <div className="table-mobile-wrap">
+        <TableDashboardMobile
+          products={pageItems}
+          loading={loading}
+          onUpdate={fetchProducts}
+        />
+      </div>
 
       <PaginationControls page={safePage} totalPages={totalPages} />
     </div>

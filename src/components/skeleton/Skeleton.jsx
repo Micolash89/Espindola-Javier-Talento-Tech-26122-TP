@@ -90,3 +90,17 @@ export function SkeletonTableDesktop({ cont = 5 }) {
     </section>
   );
 }
+
+export function SkeletonMobile()  {
+  return (
+    <div className="mobile-card">
+      <div className="skeleton-line skeleton-line--name" />
+      <div className="skeleton-line skeleton-line--short" />
+      <div className="skeleton-line skeleton-line--short" />
+      <div className="skeleton-card-actions">
+        <div className="skeleton-line skeleton-line--btn" />
+        <div className="skeleton-line skeleton-line--btn" />
+      </div>
+    </div>
+  );
+}

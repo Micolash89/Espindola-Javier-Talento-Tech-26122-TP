@@ -1,6 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
+import { reduceStock } from "../services/productsService";
 
 const CartContext = createContext();
 
@@ -51,7 +52,6 @@ export const CartProvider = ({ children }) => {
 
   const clearCart = () => {
     setCart([]);
-    toast.success("Carrito vaciado");
   };
 
   const countTotalItems = () => {
@@ -62,10 +62,17 @@ export const CartProvider = ({ children }) => {
     return cart.reduce((acc, item) => acc + item.quantity * parseFloat(item.price), 0);
   };
 
-  const checkout = () => {
-    toast.success("Compra realizada con éxito");
-    clearCart();
-    navigate("/");
+  const checkout = async () => {
+    try {
+      for (const item of cart) {
+        await reduceStock(item.id, item.quantity);
+      }
+      toast.success("Compra realizada con éxito");
+      clearCart();
+      navigate("/");
+    } catch (error) {
+      toast.error(error.message || "Error al procesar la compra");
+    }
   };
 
   const values = {

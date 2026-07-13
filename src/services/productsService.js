@@ -94,6 +94,22 @@ export const createProduct = async (productData) => {
   }
 };
 
+export const reduceStock = async (id, quantity) => {
+  try {
+    const productRef = doc(db, "products", id);
+    const snapshot = await getDoc(productRef);
+    if (!snapshot.exists()) throw new Error("Producto no encontrado");
+
+    const currentStock = snapshot.data().stock ?? 0;
+    if (currentStock < quantity) throw new Error("Stock insuficiente");
+
+    await setDoc(productRef, { stock: currentStock - quantity }, { merge: true });
+  } catch (error) {
+    console.error("Error al reducir stock:", error);
+    throw error;
+  }
+};
+
 export const updateProduct = async (id, updatedData) => {
   try {
     const productRef = doc(db, "products", id);

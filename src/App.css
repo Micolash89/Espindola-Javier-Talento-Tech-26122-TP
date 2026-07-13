@@ -8,6 +8,9 @@
   --color-command-blue: #3860be;
   --color-success-green: #38793f;
   --color-cart-badge-red: #d62828;
+  --color-table-icon-orange: #e29751;
+  --color-table-icon-red: #d73636;
+  --color-table-icon-green: #25ce25;
 
   --font-arketsansmono:
     "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,

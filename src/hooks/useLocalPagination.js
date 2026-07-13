@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 
-const ITEMS_PER_PAGE = 8;
+const ITEMS_PER_PAGE = 9;
 
 export default function useLocalPagination(items, page) {
   return useMemo(() => {

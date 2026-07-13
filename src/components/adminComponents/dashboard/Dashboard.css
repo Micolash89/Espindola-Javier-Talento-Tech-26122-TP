@@ -315,7 +315,8 @@ nav button:focus {
   background-color: var(--color-hint-of-gray);
 }
 
-.td-name, .td-rarity {
+.td-name,
+.td-rarity {
   color: var(--color-ink-black);
   max-width: 220px;
   overflow: hidden;
@@ -325,8 +326,7 @@ nav button:focus {
 
 .td-rarity {
   max-width: 100px;
-  
- }
+}
 
 .table-action-btn {
   display: inline-flex;
@@ -354,6 +354,10 @@ nav button:focus {
   color: var(--color-canvas-white);
 }
 
+.table-action-btn--edit {
+  color: var(--color-table-icon-orange);
+}
+
 .status-dot {
   display: inline-block;
   width: 10px;
@@ -377,6 +381,14 @@ nav button:focus {
   padding: var(--spacing-32);
   border: 1px solid var(--color-hint-of-gray);
   border-radius: var(--radius-inputs);
+}
+
+.table-action-btn--deactivate{
+  color: var(--color-table-icon-green);
+}
+
+.table-action-btn--activate{
+  color: var(--color-table-icon-red);
 }
 
 /* === Skeleton para tabla === */

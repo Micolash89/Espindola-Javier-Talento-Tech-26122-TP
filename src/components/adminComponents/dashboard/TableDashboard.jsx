@@ -1,4 +1,4 @@
-import { PenLine, Power, PowerOff } from "lucide-react";
+import { Ban, CircleCheck, PenLine } from "lucide-react";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import { updateProduct } from "../../../services/productsService";
@@ -49,7 +49,7 @@ export default function TableDashboard({ products, loading, onUpdate }) {
           </thead>
           <tbody>
             {products.map((product) => (
-              <tr key={product.id}>
+              <tr key={product.id} title={product.name} >
                 <td className="td-name">{product.name}</td>
                 <td>{product.type}</td>
                 <td className="td-rarity">{product.rarity}</td>
@@ -63,7 +63,7 @@ export default function TableDashboard({ products, loading, onUpdate }) {
                 <td className="td-actions">
                   <Link
                     to={`/admin/products/edit/${product.id}`}
-                    className="table-action-btn"
+                    className="table-action-btn table-action-btn--edit"
                     aria-label="Modificar producto"
                     title="Modificar producto"
                   >
@@ -72,7 +72,7 @@ export default function TableDashboard({ products, loading, onUpdate }) {
                 </td>
                 <td className="td-actions">
                   <button
-                    className="table-action-btn"
+                    className={`table-action-btn  ${product.active ? "table-action-btn--deactivate" : "table-action-btn--activate"}`}
                     onClick={() => handleToggleActive(product)}
                     aria-label={
                       product.active
@@ -86,9 +86,9 @@ export default function TableDashboard({ products, loading, onUpdate }) {
                     }
                   >
                     {product.active ? (
-                      <PowerOff size={16} />
+                      <CircleCheck size={16} />
                     ) : (
-                      <Power size={16} />
+                      <Ban  size={16}/>
                     )}
                   </button>
                 </td>

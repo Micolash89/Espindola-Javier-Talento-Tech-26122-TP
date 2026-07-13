@@ -21,6 +21,22 @@ export function SkeletonSearchBar() {
   );
 }
 
+export function SkeletonHeader() {
+  return (
+    <header className="skeleton-header">
+      <div className="skeleton-header-left">
+        <div className="skeleton-logo" />
+        <div className="skeleton-line skeleton-line--title" />
+      </div>
+      <div className="skeleton-header-right">
+        <div className="skeleton-line skeleton-line--nav" />
+        <div className="skeleton-line skeleton-line--nav" />
+        <div className="skeleton-line skeleton-line--nav" />
+      </div>
+    </header>
+  );
+}
+
 export function SkeletonTableDesktop({ cont = 5 }) {
   return (
     <section className="table-dashboard">

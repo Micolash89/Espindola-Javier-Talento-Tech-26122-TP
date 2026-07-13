@@ -6,15 +6,17 @@ export default function Item({ name, price, img, rarity, stock, children }) {
 
   const location = useLocation();
 
+  const patch = location.pathname;
+
   return (
     <div
       title={name}
-      className={`product-card ${location.pathname === "/carrito" ? " product-card-cart " : ""}`}
+      className={`product-card ${patch === "/carrito" ? " product-card-cart " : ""}`}
     >
       <div
-        className={`${stock == 0 ? " product-card-image-disabled " : ""} ${location.pathname === "/carrito" ? " product-card-image-cart " : ""}`}
+        className={`  ${patch === "/" ? " product-image" : "  "} ${stock == 0 ? " product-card-image-disabled " : ""} ${location.pathname === "/carrito" ? " product-card-image-cart " : ""}`}
       >
-        <img src={img} alt={name} />
+        <img className="" src={img} alt={name} />
 
         {stock == 0 && (
           <div className="product-card-image-disabled-overlay">Agotado</div>

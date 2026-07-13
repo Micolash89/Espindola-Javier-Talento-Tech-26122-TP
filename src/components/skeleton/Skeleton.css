@@ -63,6 +63,39 @@
   height: 40px;
 }
 
+.skeleton-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-16) var(--spacing-24);
+  border-bottom: 1px solid var(--color-hint-of-gray);
+}
+
+.skeleton-header-left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+}
+
+.skeleton-header-right {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-16);
+}
+
+.skeleton-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--color-hint-of-gray);
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+.skeleton-line--nav {
+  width: 60px;
+  height: 16px;
+}
+
 @keyframes shimmer {
   0% {
     opacity: 0.6;
